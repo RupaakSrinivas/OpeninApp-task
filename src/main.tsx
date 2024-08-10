@@ -4,7 +4,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GuardedRoute from "./components/gaurdedRoute";
 import App from "./App.tsx";
-import Login from "./pages/login";
+import Login from "./pages/login/index.tsx";
 import "./index.css";
 
 const router = createBrowserRouter([

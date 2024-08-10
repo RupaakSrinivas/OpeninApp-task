@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillDiscord } from "react-icons/ai";
 import { IoLogoLinkedin } from "react-icons/io5";
+import ThemeToggle from "../../components/themeToggle/themeToggle";
 
 export default function App() {
   const [user, setUser] = useState<any>([]);
@@ -29,15 +30,15 @@ export default function App() {
       }
     };
     if (user) {
-      fetchProfile();
+      // fetchProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
-    <div className="flex flex-row h-screen p-4 gap-6 items-center justify-center">
+    <div className="flex flex-row h-screen p-4 gap-6 items-center justify-center bg-primary-bg">
       {/* left side*/}
-      <div className="hidden md:block w-full h-full bg-[#605bff] rounded-3xl p-6 lg:p-12">
+      <div className="hidden md:block w-full h-full bg-accent-bg rounded-3xl p-6 lg:p-12">
         <div className="flex flex-col h-full rounded-3xl p-6 lg:p-12 gap-6 items-start justify-start bg-[#4b58d7] relative">
           <div className="p-4 rounded-full bg-white flex flex-row items-center justify-between gap-6">
             {/* todo change to svg*/}
@@ -53,6 +54,9 @@ export default function App() {
             src="/auth/img.png"
             className=" absolute right-0 bottom-0 max-w-[70%] max-h-[350px]"
           />
+          <div className="absolute bottom-0 left-0">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
 
@@ -60,32 +64,32 @@ export default function App() {
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="md:hidden absolute top-0 flex flex-row items-center gap-4 h-20 p-4 bg-[#605bff] w-full">
           <img src="/iconWhite.svg" />
-          <h2 className="text-2xl text-white">Base</h2>
+          <h2 className="text-2xl text-primary-text">Base</h2>
         </div>
-        <div className="max-w-[400px] w-full h-full max-h-[600px] flex flex-col gap-6 justify-start">
+        <div className="max-w-[450px] w-full text-primary-text h-full max-h-[600px] flex flex-col gap-6 justify-start">
           <h1 className="text-4xl font-bold">Sign In</h1>
           <p className="font-bold">Sign in to your account</p>
           <div className="w-full flex-row flex gap-4 items-center justify-between">
             <button
-              className="w-full p-2 rounded-xl bg-[#0d0d0d] text-[#858585] font-bold flex items-center justify-center gap-4"
+              className="w-full p-2 rounded-xl bg-secondary-bg text-secondary-text font-bold flex items-center justify-center gap-4"
               onClick={() => googleLogin()}
             >
               <img src="./auth/googleIcon.svg" className="w-6 h-6" />
               <p>Sign in with Google</p>
             </button>
-            <button className="w-full p-2 rounded-xl bg-[#0d0d0d] text-[#858585] font-bold flex items-center justify-center gap-4">
+            <button className="w-full p-2 rounded-xl bg-secondary-bg text-secondary-text font-bold flex items-center justify-center gap-4">
               <img src="./auth/appleIcon.svg" className="w-6 h-6" />
               <p>Sign in with apple</p>
             </button>
           </div>
 
-          <form className="bg-black rounded-xl w-full p-8 flex flex-col items-center justify-center gap-6">
+          <form className="bg-secondary-bg  rounded-xl w-full p-8 flex flex-col items-center justify-center gap-6">
             <div className="w-full">
               <label className="font-bold w-full">Email</label>
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full p-2 my-2 rounded-xl bg-[#161616] font-bold"
+                className="w-full p-2 my-2 rounded-xl bg-primary-bg  font-bold"
               />
             </div>
 
@@ -94,7 +98,7 @@ export default function App() {
               <input
                 type="password"
                 placeholder="password"
-                className="w-full p-2 my-2 rounded-xl bg-[#161616] font-bold"
+                className="w-full p-2 my-2 rounded-xl bg-primary-bg font-bold"
               />
             </div>
             <a href="/forgotpassword" className="w-full text-[#4979D9]">
@@ -102,7 +106,7 @@ export default function App() {
             </a>
             <button
               type="submit"
-              className="w-full p-2 my-2 rounded-xl bg-[#605bff] text-black font-bold"
+              className="w-full p-2 my-2 rounded-xl bg-[#605bff] font-bold"
             >
               Sign in
             </button>
