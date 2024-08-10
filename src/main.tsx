@@ -5,13 +5,25 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GuardedRoute from "./components/gaurdedRoute";
 import App from "./App.tsx";
 import Login from "./pages/login/index.tsx";
+import Upload from "./pages/upload/index.tsx";
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <GuardedRoute />,
-    children: [{ path: "/", element: <App /> }],
+    children: [
+      {
+        path: "/",
+        element: <App />,
+        children: [
+          {
+            path: "/",
+            element: <Upload />,
+          },
+        ],
+      },
+    ],
   },
   { path: "/login", element: <Login /> },
 ]);
