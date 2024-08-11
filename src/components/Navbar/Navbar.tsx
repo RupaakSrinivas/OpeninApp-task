@@ -1,6 +1,6 @@
 import { authStore } from "../../store/auth";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import styles from "./Navbar.module.css";
+import styles from "./navbar.module.css";
 import { useEffect, useState } from "react";
 import { MdDashboard, MdCloudUpload, MdReceipt, MdSchedule, MdEvent, MdNotifications, MdSettings } from "react-icons/md";
 import { useLocation } from "react-router-dom";
