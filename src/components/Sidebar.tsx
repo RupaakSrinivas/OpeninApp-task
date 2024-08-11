@@ -125,8 +125,8 @@ export default function Sidebar() {
               href={item.link}
               className={`w-full px-4 p-2 font-bold flex items-center justify-start gap-4 bg-opacity-20 ${
                 currentPath === item.link
-                  ? " bg-gradient-to-r from-[#ACA9FF7F] to-[#ACA9FF00] text-accent-bg"
-                  : ""
+                  ? " bg-gradient-to-r from-[#ACA9FF6F] to-[#ACA9FF00] text-accent-bg"
+                  : "hover:text-primary-text"
               }`}
             >
               <item.icon className="w-6 h-6" />

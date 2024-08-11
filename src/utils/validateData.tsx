@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function validateData(results: any) {
-  console.log(results);
 
   const errors: string[] = [];
   const headers = results[0];
@@ -14,15 +13,12 @@ export default function validateData(results: any) {
 
   // Validate headers
   if (JSON.stringify(headers) !== JSON.stringify(expectedHeaders)) {
-    console.log(JSON.stringify(headers), JSON.stringify(expectedHeaders));
     errors.push("CSV headers do not match the expected format");
   }
 
   // Validate each row
   for (let i = 1; i < results.length; i++) {
     const row = results[i];
-    console.log(row);
-
     // Check if row has correct number of columns
     if (row.length !== 5) {
       errors.push(`Row ${i}: Incorrect number of columns`);

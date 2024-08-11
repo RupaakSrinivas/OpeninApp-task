@@ -30,17 +30,16 @@ export default function Upload() {
   const { CSVReader } = useCSVReader();
   const [zoneHover, setZoneHover] = useState(false);
 
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<any>(null);
 
   return (
     <div className="bg-secondary-bg md:bg-primary-bg text-primary-text w-full h-full overflow-y-auto flex flex-col p-4">
       <h1 className="text-2xl">Upload CSV</h1>
       <div className="w-full max-h-[600px] h-full flex flex-row items-center justify-center">
-        <div className="bg-secondary-bg rounded-lg p-4 w-full h-full max-w-[600px] max-h-[360px] flex flex-col items-center gap-4">
+        <div className="bg-secondary-bg rounded-lg p-4 w-full max-h-full max-w-[600px] h-[360px] flex flex-col items-center gap-4">
           <div className="h-full w-full  rounded-2xl">
             <CSVReader
               onUploadAccepted={(results: any) => {
-                console.log(results.data);
                 setData(results.data);
                 setZoneHover(false);
               }}
@@ -55,7 +54,7 @@ export default function Upload() {
               multiple={false}
               onUploadRejected={(file: any) => {
                 console.log(file);
-                window.alert("File rejected");
+                window.alert("Invalid file format, use only csv files");
               }}
             >
               {({
@@ -72,6 +71,7 @@ export default function Upload() {
                       styles.zone,
                       zoneHover && styles.zoneHover
                     )}
+                    className="h-full max-h-[280px] mb-4"
                   >
                     {acceptedFile ? (
                       <div className="h-full w-full flex flex-col items-center justify-center">
@@ -81,26 +81,34 @@ export default function Upload() {
                         <p>{formatFileSize(acceptedFile.size)}</p>
                         <button
                           {...getRemoveFileProps()}
+                          onClickCapture={() => setData(null)}
                           className="text-red-500 font-semibold p-2 rounded-md"
                         >
                           Remove
                         </button>
+
                         <ProgressBar />
                       </div>
                     ) : (
                       "Drop CSV file here or click to upload"
                     )}
                   </div>
+                  <button
+                    {...getRootProps()}
+                    // disabled={data}
+                    className="w-full px-4 p-2 bg-accent-bg text-primary-bg font-semibold rounded-md flex flex-row items-center justify-center gap-4"
+                  >
+                    <MdOutlineFileUpload className="h-8 w-8" /> Upload
+                  </button>
                 </>
               )}
             </CSVReader>
           </div>
-          <button className="w-full px-4 p-2 bg-accent-bg text-primary-bg font-semibold rounded-md flex flex-row items-center justify-center gap-4">
-            <MdOutlineFileUpload className="h-8 w-8" /> Upload
-          </button>
         </div>
       </div>
-      {data && <ViewData data={data} />}
+      <div className="w-full h-full relative">
+        {data && <ViewData data={data} />}
+      </div>
     </div>
   );
 }
