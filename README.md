@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+#  React Coding Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This task is done according to the requirement of the OpenInApp frontend internship
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features for the User
 
-## Expanding the ESLint configuration
+- login page and Sign Up Page
+- google Oauth for authentication
+- support for color themes
+- a resizeable sidebar, with hamburger menu on mobiles
+- option to upload a csv file and view the details in the table
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Development Setup
+  - Clone this repo
+  - `npm install` to install all the dependencies
+  - `npm run dev` to start the react app
 
-- Configure the top-level `parserOptions` property like this:
+## Snapshots
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+![image](https://github.com/user-attachments/assets/39ed3f4e-430b-457f-abd9-1016d3502d63)
+![image](https://github.com/user-attachments/assets/ad8b49fd-aa9f-4a18-a1af-c13976dae7ef)
+![image](https://github.com/user-attachments/assets/11549d93-54cc-49ac-8c41-00d74a5f08af)
+![image](https://github.com/user-attachments/assets/ea74c2be-0f1d-4d30-849c-ab11f16ae0f9)
+![image](https://github.com/user-attachments/assets/03fadf2e-6216-487c-a07e-a557cd00cf61)
+  
+## Dependencies
+  - react -v 18.3.1
+  - react-router-dom -v 6.26.0
+  - react-icons -v 5.2.1
+  - axios -v 1.7.3
+  - typescript -v 5.5.3
+  - tailwindCSS -v 3.4.9
+  - @react-oauth/google-v 0.12.1
+  - papaparse -v 5.4.1
+  - zustand -v 4.5.4
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Future updates
+If there were more time, I would add
+  - toast using react toastify to alert users of errors instead of window.alert
+  - save color theme and sidebar size preferences on local storage
+  - add functionality for the upload view table for selecting tag icons
+  
