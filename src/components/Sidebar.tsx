@@ -69,7 +69,7 @@ export default function Sidebar() {
       }
 
       setWidth((previousWidth) => {
-        const newWidth = previousWidth + e.movementX / 4;
+        const newWidth = previousWidth + e.movementX / 2;
 
         const isWidthInRange = newWidth >= minWidth && newWidth <= maxWidth;
 
