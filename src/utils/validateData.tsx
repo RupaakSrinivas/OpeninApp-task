@@ -17,10 +17,12 @@ export default function validateData(results: any) {
   }
 
   // Validate each row
-  for (let i = 1; i < results.length; i++) {
+  for (let i = 1; i < results.length-1; i++) {
     const row = results[i];
     // Check if row has correct number of columns
     if (row.length !== 5) {
+        console.log(row);
+        console.log(results.length);
       errors.push(`Row ${i}: Incorrect number of columns`);
       continue;
     }
