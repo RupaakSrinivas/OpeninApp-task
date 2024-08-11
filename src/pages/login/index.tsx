@@ -42,7 +42,7 @@ export default function App() {
         <div className="flex flex-col h-full rounded-3xl p-6 lg:p-12 gap-6 items-start justify-start bg-[#4b58d7] relative">
           <div className="p-4 rounded-full bg-white flex flex-row items-center justify-between gap-6">
             {/* todo change to svg*/}
-            <img src="/icon.png" />
+            <img src="/icon.svg" />
             <h2 className="text-2xl font-bold text-black">Base</h2>
           </div>
           <div className="flex flex-col gap-6 items-start justify-start">
@@ -71,22 +71,30 @@ export default function App() {
           <p className="font-bold">Sign in to your account</p>
           <div className="w-full flex-row flex gap-4 items-center justify-between">
             <button
-              className="w-full p-2 rounded-xl bg-secondary-bg text-secondary-text font-bold flex items-center justify-center gap-4"
+              className="w-full p-2 rounded-xl bg-secondary-bg text-secondary-text font-bold flex items-center justify-center transition-all gap-4 border-2 border-secondary-bg hover:border-accent-bg"
               onClick={() => googleLogin()}
             >
               <img src="./auth/googleIcon.svg" className="w-6 h-6" />
               <p>Sign in with Google</p>
             </button>
-            <button className="w-full p-2 rounded-xl bg-secondary-bg text-secondary-text font-bold flex items-center justify-center gap-4">
+            <button 
+              className="w-full p-2 rounded-xl bg-secondary-bg text-secondary-text font-bold flex items-center transition-all justify-center gap-4 border-2 border-secondary-bg hover:border-accent-bg">
               <img src="./auth/appleIcon.svg" className="w-6 h-6" />
               <p>Sign in with apple</p>
             </button>
           </div>
 
-          <form className="bg-secondary-bg  rounded-xl w-full p-8 flex flex-col items-center justify-center gap-6">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.alert("Use google Login");
+            }}
+            className="bg-secondary-bg  rounded-xl w-full p-8 flex flex-col items-center justify-center gap-6"
+          >
             <div className="w-full">
               <label className="font-bold w-full">Email</label>
               <input
+                required
                 type="email"
                 placeholder="Email"
                 className="w-full p-2 my-2 rounded-xl bg-primary-bg  font-bold"
@@ -96,6 +104,7 @@ export default function App() {
             <div className="w-full">
               <label className=" font-bold w-full">Password</label>
               <input
+                required
                 type="password"
                 placeholder="password"
                 className="w-full p-2 my-2 rounded-xl bg-primary-bg font-bold"
@@ -106,7 +115,7 @@ export default function App() {
             </a>
             <button
               type="submit"
-              className="w-full p-2 my-2 rounded-xl bg-[#605bff] font-bold"
+              className="w-full p-2 my-2 rounded-xl bg-[#605bff] font-bold hover:bg-opacity-80"
             >
               Sign in
             </button>

@@ -8,9 +8,12 @@ import {
   MdEvent,
   MdNotifications,
   MdSettings,
+  MdOutlineLogout,
 } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import ThemeToggle from "./themeToggle/themeToggle";
+import { googleLogout } from "@react-oauth/google";
+import { authStore } from "../store/auth";
 
 const NavItems = [
   {
@@ -53,6 +56,7 @@ const NavItems = [
 export default function Sidebar() {
   const [minWidth, maxWidth, defaultWidth] = [80, 400, 201];
   const location = useLocation();
+  const { logout } = authStore();
 
   const [currentPath, setCurrentPath] = useState("");
   const [width, setWidth] = useState(defaultWidth);
@@ -133,6 +137,16 @@ export default function Sidebar() {
               <p className={`${width >= 200 ? "" : "hidden"}`}>{item.title}</p>
             </a>
           ))}
+          <button
+            onClick={() => {
+                googleLogout()
+                logout()
+            }}
+            className={`w-full px-4 p-2 font-bold flex items-center justify-start gap-4 bg-opacity-20 hover:text-primary-text`}
+          >
+            <MdOutlineLogout className="w-6 h-6" />
+            <p>Logout</p>
+          </button>
         </nav>
 
         <div className="h-full w-full flex flex-row items-end ml-4 mb-4">

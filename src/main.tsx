@@ -6,6 +6,7 @@ import GuardedRoute from "./components/gaurdedRoute";
 import App from "./App.tsx";
 import Login from "./pages/login/index.tsx";
 import Upload from "./pages/upload/index.tsx";
+import NotFound from "./pages/notFound.tsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/login", element: <Login /> },
+  { path: "*", element: <NotFound /> },
 ]);
 
 createRoot(document.getElementById("root")!).render(
